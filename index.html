@@ -11,12 +11,13 @@
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Sign Up Form</title>
+  <script src="form-validation.js" defer></script>
 </head>
 
 <body>
   <header>
     <div class="logo-container">
-      <img src="images/odin-lined.png" alt="Odin logo" height="110px" width="110px">
+      <img src="images/odin-lined.png" alt="Odin logo" height="100px" width="100px">
       <h1 class="logo-text">ODIN</h1>
     </div>
   </header>
@@ -35,7 +36,7 @@
 
           <div class="input-wrapper">
             <div>
-              <label for="firstname">FIRST NAME
+              <label for="firstname">FIRST NAME <span aria-label="Required">*</span>
                 <input type="text" id="firstname" name="first_name" placeholder=" " required>
               </label>
             </div>
@@ -45,7 +46,7 @@
               </label>
             </div>
             <div>
-              <label for="email">EMAIL
+              <label for="email">EMAIL <span aria-label="Required">*</span>
                 <input type="email" id="email" name="email" placeholder=" " required>
               </label>
             </div>
@@ -55,13 +56,14 @@
               </label>
             </div>
             <div>
-              <label for="pass">PASSWORD
-                <input type="password" id="pass" name="password" minlength="8" placeholder=" " required>
+              <label for="pass">PASSWORD <span aria-label="Required">*</span>
+                <input type="password" id="pass" name="password" placeholder=" " required>
+                <span class="error" aria-text="Passwords do not match"> </span>
               </label>
             </div>
             <div>
-              <label for="confirm-pass">CONFIRM PASSWORD
-                <input type="password" id="confirm-pass" name="confirm_password" minlength="8" placeholder=" " required>
+              <label for="confirm-pass">CONFIRM PASSWORD <span aria-label="Required">*</span>
+                <input type="password" id="confirm-pass" name="confirm_password" placeholder=" " required>
               </label>
             </div>
           </div>

@@ -39,12 +39,18 @@ header {
   top: 20vh;
   background-color: rgba(0, 0, 0, 0.45);
   padding: 15px 10px;
+  height: calc(100px + 2vw);
 }
 
 .logo-container h1 {
-  font-size: calc(50px + 0.7vw);
+  font-size: calc(35px + 1.5vw);
   color: white;
   margin-left: 10px;
+}
+
+.logo-container img {
+  height: calc(90px + 1.5vw);
+  width: calc(90px + 1.3vw);
 }
 
 /* Main */
@@ -85,7 +91,7 @@ fieldset {
 .input-wrapper {
   --input-width: 245px;
   --col-gap-width: 70px;
-  
+
   color: rgb(18, 28, 43);
   display: flex;
   flex-flow: row wrap;
@@ -100,10 +106,15 @@ legend {
 }
 
 label {
+  position: relative;
   display: block;
   width: var(--input-width);
   font-size: 0.75rem;
   font-weight: 500;
+}
+
+label span[aria-label="Required"] {
+  color: var(--invalid-red)
 }
 
 input {
@@ -113,11 +124,6 @@ input {
   width: var(--input-width);
   margin: 3px 0 10px;
   padding: 0 6px;
-}
-
-input::after {
-  content: "* Passwords do not match";
-  visibility: visible;
 }
 
 input:focus {
@@ -132,6 +138,20 @@ input:focus:not(:placeholder-shown):invalid {
 
 input:not(:placeholder-shown):invalid {
   border: 1px solid var(--invalid-red);
+}
+
+.error::after {
+  font-size: 0.68rem;
+  content: "* Passwords do not match";
+  color: var(--invalid-red);
+  position: absolute;
+  top: 47px;
+  left: 0;
+  visibility: hidden;
+}
+
+.visible::after {
+  visibility: visible;
 }
 
 /* Submit */
@@ -168,7 +188,7 @@ a:link,
 a:visited {
   text-decoration: none;
   color: var(--btn-brown);
-  font-weight: 700;  
+  font-weight: 700;
 }
 
 a:is(:link, :visited):hover {
@@ -177,4 +197,70 @@ a:is(:link, :visited):hover {
 
 a:is(:link, :visited):active {
   color: var(--active-brown);
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    flex-flow: column nowrap;
+  }
+
+  header {
+    width: initial;
+  }
+
+  main {
+    width: initial;
+    height: 100%;
+  }
+
+  .logo-container {
+    position: static;
+    width: 100%;
+  }
+
+  .description-container {
+    padding: 0 10px 0 10px;
+  }
+
+  .remote-text {
+    margin: 25px auto calc(10px + 5vw);
+  }
+
+  .form-container {
+    padding: 20px 10px 30px 10px;
+  }
+
+  .input-wrapper {
+    justify-content: center;
+    margin: auto;
+  }
+
+  legend,
+  p,
+  .submit-container,
+  .log-in {
+    text-align: center;
+  }
+
+  .submit-container {
+    padding: 35px 10px 30px 10px;
+  }
+
+  .log-in {
+    padding: 10px 10px 10px 10px;
+  }
+}
+
+@media only screen and (max-width: 589px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    height: initial;
+  }
+
+  .description {
+    margin-top: 20px;
+  }
 }
