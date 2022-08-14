@@ -41,17 +41,21 @@ header {
   background-color: rgba(0, 0, 0, 0.45);
   padding: 15px 10px;
   height: calc(100px + 2vw);
+  gap: 5px;
 }
 
 .logo-container h1 {
+  font-family: 'Righteous', cursive, sans-serif;
+  font-weight: 400;
   font-size: calc(35px + 1.5vw);
   color: white;
-  margin-left: 10px;
+  filter: drop-shadow(2px 4px 6px rgb(44, 28, 15));
 }
 
 .logo-container img {
-  height: calc(90px + 1.5vw);
-  width: calc(90px + 1.3vw);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+  height: calc(50px + 1.5vw);
+  width: calc(50px + 1.5vw);
 }
 
 /* Main */
@@ -199,15 +203,38 @@ a:is(:link, :visited):active {
   color: var(--active-brown);
 }
 
+/* Footer */
+footer a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  opacity: .5;
+  transition: all 0.17s;
+}
+
+footer a:hover {
+  opacity: .8;
+}
+
+footer a:active {
+  opacity: 1;
+}
+
+footer a:is(:link, :visited) {
+  color: hwb(330 8% 91%);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
 @media only screen and (max-width: 768px) {
   body {
     flex-flow: column nowrap;
   }
 
-  header {
-    width: initial;
-  }
-
+  header,
   main {
     width: initial;
   }
@@ -246,7 +273,7 @@ a:is(:link, :visited):active {
   }
 
   .submit-container {
-    padding: 35px 10px 30px 10px;
+    padding: 35px 10px 20px 10px;
   }
 
   .log-in {
@@ -254,12 +281,33 @@ a:is(:link, :visited):active {
   }
 }
 
-@media only screen and (max-width: 589px) {
+@media only screen and (max-width: 579px) {
   html {
     font-size: 14px;
   }
 
   body {
     height: initial;
+  }
+
+  footer {
+    margin: 15px 0 5px 0;
+    text-align: center;
+  }
+
+  footer a {
+    position: initial;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  footer a::after {
+    content: '\00a0on Github';
+  }
+
+  footer a img {
+    margin-right: 7px;
+    height: 20px;
+    width: 20px;
   }
 }
